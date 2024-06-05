@@ -1,1 +1,30 @@
 # SpaceBro
+Psuedocode
+// 1) Define any variables used to track the state of the game:
+//    The selected word
+//    The displayed word with underscores
+//    The number of incorrect attempts
+//    A message to display the game status
+
+// 2) Define the required constants:
+//    A list of possible words to guess
+//    The maximum number of incorrect attempts
+//    References to DOM elements for the word display, message display, letter buttons, and reset button
+
+// 3) Handle a player clicking a letter button
+//    If the letter is in the selected word
+//        Update the displayed word
+//    Else
+//        Increment the number of incorrect attempts
+//    Check the game status (win/lose)
+//    Update the display with the current state
+
+// 4) Handle clicking the reset button
+//    Reset the game state (selected word, displayed word, attempts)
+//    Update the display with the new state
+
+// 5) Initialize the game
+//    Select a random word from the list
+//    Set the displayed word to underscores
+//    Set attempts to 0
+//    Update the display with the initial state
