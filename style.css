@@ -29,9 +29,14 @@ h1 {
 }
 
 .word {
+    padding: 10px;
     font-size: 2em;
     margin-bottom: 20px;
-    letter-spacing: 5px
+    letter-spacing: 5px;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 .messeage {

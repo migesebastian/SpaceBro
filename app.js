@@ -4,31 +4,35 @@ const selectors = {
     letter: '.letter',
     reset: '#reset',
     word: '#word',
-    message: '#message'
+    message: '#message',
+    // spaceBro: '#spacebro'
 }
-const words = ['GAINZ', 'PROTEIN', 'FAILURE', 'PUMPED', 'DED']
-const randomIndex = (words.length);
-const selectedWords = words[randomIndex];
+const words = ['GAINZ', 'PROTEIN', 'FAILURE', 'PUMPED', 'DED'];
 const MAX = 6
 /*-------------------------------- Variables --------------------------------*/
 let selectedWord = '';
 let displayedWord = '';
 let attempts = 0;
+let gameOver = false;
 /*------------------------ Cached Element References ------------------------*/
 
 const spacebroGame = document.querySelector(selectors.spacebroGame)
 const wordDisplay = document.querySelector(selectors.word)
 const messageDisplay = document.querySelector(selectors.message)
-const resetGame = document.querySelector(selectors.reset)
+// const hangingBro = document.querySelector(selectors.hangingBro)
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 
 spacebroGame.addEventListener('click', (event) => {
-    if (event.target.classList.contains(selectors.letter.slice(1))) {
-        handleLetterGuess(event.target.dataset.letter);
-    } if (event.target.id === selectors.reset.slice(1)) {
-        resetGame();
+    const target = event.target;
+    if (target.classList.contains(selectors.letter.slice(1)) && !gameOver) {
+        const letter = target.id;
+        if (letter) {
+            handleLetterGuess(letter);
+        }
+    }   if (event.target.id === selectors.reset.slice(1)) {
+        startGame();
     }
 })
 
@@ -38,48 +42,50 @@ function startGame() {
     selectedWord = words[Math.floor(Math.random() * words.length)];
     displayedWord = '_'.repeat(selectedWord.length);
     attempts = 0;
+    gameOver = false;
     messageDisplay.textContent = '_';
     updateDisplay();
 }
 
-function handleLetterGuess(letter){
-    let displayedArray = displayedWord.split('');
-    if (selectedWord.includes(letter)) {
 
+function handleLetterGuess(letter) {
+    if (selectedWord.includes(letter)) {
+        let displayedArray = displayedWord.split('');
+        selectedWord.split('').forEach((char, index) => {
+            if (char === letter) {
+                displayedArray[index] = letter;
+            }
+        });
+        displayedWord = displayedArray.join('');
+    } else {
+        attempts++;
     }
+    checkGameStatus();
+    updateDisplay();
 }
-// function handleLetterGuess(letter) {
-//     if (selectedWord.includes(letter)) {
-//         let displayedArray = displayedWord.split('');
-//         selectedWord.split('').forEach((character, index) => {
-//             if (character === letter) {
-//                 displayedArray[index] = letter;
-//             }
-//         });
-//         displayedWord = displayedArray.join('');
-//     } else {
-//         attempts++;
-//     }
-//     console.log(displayedArray)
-//     checkGameStatus();
-//     updateDisplay();
-// }
 
 function checkGameStatus() {
     if (displayedWord === selectedWord) {
         messageDisplay.textContent = 'Congratulations! You won!';
+        gameOver = true;
     } else if (attempts >= MAX) {
         messageDisplay.textContent = `Game Over! The word was ${selectedWord}.`;
+        gameOver = true;
     }
 }
 
 function updateDisplay() {
     wordDisplay.textContent = displayedWord.split('').join(' ');
-    messageDisplay.textContent = `Attempts: ${attempts}/${MAX}`;
-}
+    if (!gameOver) {
+        messageDisplay.textContent = `Attempts: ${attempts}/${MAX}`;
+    }
+    // spaceBro()
+} 
 
-function reset() {
+// function spaceBro() {
+//     const stateSpaceBro = [
+        
+//     ]
 
-}
-
+// }
 startGame()
