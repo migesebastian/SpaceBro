@@ -1,30 +1,35 @@
-# SpaceBro
-Psuedocode
-// 1) Define any variables used to track the state of the game:
-//    The selected word
-//    The displayed word with underscores
-//    The number of incorrect attempts
-//    A message to display the game status
+# SpaceBro Game
 
-// 2) Define the required constants:
-//    A list of possible words to guess
-//    The maximum number of incorrect attempts
-//    References to DOM elements for the word display, message display, letter buttons, and reset button
+![SpaceBro Game Screenshot](https://i.imgur.com/7pl7FE1.png)
 
-// 3) Handle a player clicking a letter button
-//    If the letter is in the selected word
-//        Update the displayed word
-//    Else
-//        Increment the number of incorrect attempts
-//    Check the game status (win/lose)
-//    Update the display with the current state
 
-// 4) Handle clicking the reset button
-//    Reset the game state (selected word, displayed word, attempts)
-//    Update the display with the new state
+### Description
+SpaceBro is a guessing game with a space theme. Guess the hidden word one letter at a time. You have 6 attempts; each incorrect guess brings the spacebro closer to dying and going into space.
 
-// 5) Initialize the game
-//    Select a random word from the list
-//    Set the displayed word to underscores
-//    Set attempts to 0
-//    Update the display with the initial state
+I chose this game for its based on the fact that I'm well aquanted with it since its basically hangman. If you get the word right the "space bro" wont die if you dont guess right he dies. 
+
+## Getting Started
+- **Play the Game**: [SpaceBro Game](https://migesebastian.github.io/SpaceBro/) 
+- **Planning Materials**: All the lectures and labs given to us
+
+### Instructions
+1. Click on a letter to guess it.
+2. Correct guesses reveal the letter in the word.
+3. Incorrect guesses bring the spacebro closer to dying.
+4. You have 6 incorrect guesses before the game ends.
+
+## Attributions
+- **Background Image**: 
+![Space Theme Image](https://img.freepik.com/free-photo/photorealistic-galaxy-background_23-2151064443.jpg?size=626&ext=jpg)    
+
+## Technologies 
+- **JavaScript**
+- **HTML**
+- **CSS**
+
+## Next Steps
+1. Mobile optimization
+2. Advanced graphics
+3. Difficulty levels
+4. Score tracking
+5. Expanded word list

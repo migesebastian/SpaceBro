@@ -85,14 +85,6 @@ function updateDisplay() {
     if (!gameOver) {
         messageDisplay.textContent = `Attempts: ${attempts}/${MAX}`;
     }
-    // spaceBro()
 } 
-
-// function spaceBro() {
-//     const stateSpaceBro = [
-        
-//     ]
-
-// }
 
 startGame()
