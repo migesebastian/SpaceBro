@@ -5,7 +5,8 @@ const selectors = {
     reset: '#reset',
     word: '#word',
     message: '#message',
-    // spaceBro: '#spacebro'
+    instructionOverlay: '#instruction-overlay',
+    startGame: '#start-game'
 }
 const words = ['GAINZ', 'PROTEIN', 'FAILURE', 'PUMPED', 'DED'];
 const MAX = 6
@@ -19,10 +20,15 @@ let gameOver = false;
 const spacebroGame = document.querySelector(selectors.spacebroGame)
 const wordDisplay = document.querySelector(selectors.word)
 const messageDisplay = document.querySelector(selectors.message)
-// const hangingBro = document.querySelector(selectors.hangingBro)
+const instructionOverlay = document.querySelector(selectors.instructionOverlay);
+const startGameButton = document.querySelector(selectors.startGame);
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+startGameButton.addEventListener('click', () => {
+    instructionOverlay.style.display = 'none';
+    spacebroGame.classList.remove('hidden');
+    startGame();
+});
 
 spacebroGame.addEventListener('click', (event) => {
     const target = event.target;
@@ -88,4 +94,5 @@ function updateDisplay() {
 //     ]
 
 // }
+
 startGame()
